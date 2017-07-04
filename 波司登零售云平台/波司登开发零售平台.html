@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>波司登卡发零售平台</title>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" type="text/css" href="evenFlow.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+		<header>
+			<div id="logo" >
+				
+			</div>
+			<div id="Cm">
+				<h4>波司登开发零售平台</h4>
+				<p>Bosideng retail development platform</p>
+			</div>
+			<div id="pone">
+				<div id="_i1">
+					<i class="fa fa-phone"></i>
+				</div>
+				<div id="_w1">
+					<p><b>（86）512 5253 8888</b></p>
+					<p>周一~周五 8:30-21:00</p>
+				</div>
+				
+			</div>
+			<div id="Em">
+				<div id="_i1">
+					<i class="fa fa-envelope"></i>
+				</div>
+				<div id="_w1" >
+					<p><b>info@bosideng.com</b></p>
+					<p>随时欢迎来信！</p>
+				</div>
+				
+			</div>
+			<div id="Gp">
+				<div id="_i1" >
+					<i class="fa fa-map-marker"></i>
+				</div>
+				<div id="_w1">
+					<p ><b>波司登集团总部（江苏常熟）</b></p>
+					<p>江苏省常熟市波司登工业园区</p>
+				</div>
+				
+			</div>
+			
+		</header>
+		<!--<section id="daohang">
+<!--			
+			<div id="carousel">
+				<img src="img/5.1.jpg"/>
+				<img src="img/2.1.jpg"/>
+				<img src="img/1.1.jpg"/>
+				<img src="img/5.1.jpg"/>
+				<ul id="pageControl">
+					<li class="on"></li>
+					
+					<li></li>
+					<li></li>
+				</ul>
+				
+				
+			</div>-->
+		</section>-->
+		<main>
+			<div id="now">
+				<section id="_Z1" class="evenflow_scale">
+					<p style="text-align: center; font-size: 6vw; color: #00BFFF;padding-top: 10px;">
+								<i class="fa fa-columns"></i>
+							</p>
+							<h4 class="_x1">门店销售系统</h4>
+							<p class="_x2">
+								系统提供门店采购订单管理、零售业务处理、零售业务数据上传、统计分析等业务功能。
+							</p>
+							<a href=""><p class="_x3" style="color: #00BFFF;">点击进入>>></p></a>
+				</section>
+				<section id="_Z2" class="evenflow_scale">
+					<p style="text-align: center; font-size: 6vw; color: #00BFFF;padding-top: 10px;">
+								<i class="fa fa-bandcamp" aria-hidden="true"></i>
+							</p>
+							<h4 class="_x1">分销系统</h4>
+							<p class="_x2">
+								分销系统功能：开展分销、批发、连锁加盟等业务，也可以进行零售直销。
+							</p>
+							<a href=""><p class="_x3" style="color: #00BFFF;">点击进入>>></p></a>
+				</section>
+				<section id="_Z3" class="evenflow_scale">
+					<p style="text-align: center; font-size: 6vw; color: #00BFFF;padding-top: 10px;">
+								<i class="fa fa-trello"></i>
+							</p>
+							<h4 class="_x1">
+								渠道工程系统
+							</h4>
+							<p class="_x2">
+								渠道系统的规划建设应充分考虑渠道的营销职能，是一个能够通过自身运营带来利润的平台。
+							</p>
+							<a href=""><p class="_x3" style="color: #00BFFF;">点击进入>>></p></a>
+							
+				</section>
+				<section id="_Z4" class="evenflow_scale">
+					<p style="text-align: center; font-size: 6vw; color: #00BFFF; padding-top: 5px;">
+								<i class="fa fa-diamond" aria-hidden="true"></i>
+							</p>
+							<h4 class="_x1">
+								会员系统
+							</h4>
+							<p class="_x2">
+								对会员进行有效管理。了解用户的兴趣爱好、消费特点等;针对客户提供优质的个性化服务。
+							</p>
+							<a href=""><p class="_x3" style="color: #00BFFF;">点击进入>>></p></a>
+							
+							
+				</section>
+			</div>
+			
+		</main>
+		<footer>
+			<p>版权所有&nbsp;&nbsp;&nbsp;&nbsp;波司登国际控股有限公司&nbsp;&nbsp;&nbsp;保留所有权利</p>
+			<p>波司登信息部</p>
+		</footer>
+		
+	</body>
+	<script type="text/javascript">
+		var carousel = document.getElementById('carousel')
+		var imgs = document.getElementsByTagName('img')
+		var lis = document.getElementsByTagName('li')
+		var timer
+		var count = 0
+		var width = carousel.clientWidth
+		for(var i = 0; i < imgs.length;i++){
+			imgs[i].style.left = (i - count) * width + 'px '
+		}
+		function autoPlay(){
+			lis[count].className = ''
+			count ++
+			for(var i = 0; i < imgs.length; i++) {
+		imgs[i].style.left = (i - count) * width + 'px '
+	}
+			if(count == 3){
+				count = 0
+				setTimeout(function(){
+					for(var i = 0;i<imgs.length;i++){
+						imgs[i].style.transition = 'none'
+						imgs[i].style.left = i * width +'px'
+					}
+					setTimeout(function(){
+						for(var i = 0;i<imgs.length;i++){
+							imgs[i].style.transition = 'left 1s ease-in-out'
+						}
+					},20)
+				},1000)
+			}
+			lis[count].className = 'on'
+		}
+		timer = setInterval(autoPlay,3000)
+	</script>
+</html>
