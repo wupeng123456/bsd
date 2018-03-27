@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>字符串反转</title>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{message}}</p>
+			<button v-on:click="reverseMessage">反转字符串</button>
+		</div>
+	</body>
+	<script src="vue.min.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				message:'这是一个字符串'
+			},
+			methods:{
+				reverseMessage:function(){
+					this.message = this.message.split('').reverse().join('');
+				}
+			}
+		})
+	</script>
+</html>

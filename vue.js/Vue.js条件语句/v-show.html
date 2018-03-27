@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>v-show</title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<h1 v-show="ok">Hello!</h1>
+		</div>
+	</body>
+	<script src="vue.min.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				ok:true
+			}
+		})
+	</script>
+</html>

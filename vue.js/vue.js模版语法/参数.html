@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>参数</title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<p>参数在指令后以冒号指明.v-bind被用来响应式的更新HTML属性</p>
+			<pre>
+				<a v-bind:href="url">这是百度</a>
+				<p>这里href是参数,告知v-bind指令将该元素的href属性与表达式url的值绑定</p>
+			</pre>
+		</div>
+	</body>
+	<script src="vue.min.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				url:'http://www.baidu.com'
+			}
+		})
+	</script>
+</html>

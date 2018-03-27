@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>条件判断</title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<p v-if="seen">
+				现在你看到我了
+			</p>
+			<template v-if="ok">
+				<h1>学习</h1>
+				<p>你都没有努力还谈什么未来</p>
+				<p>好好学习打字</p>
+			</template>
+		</div>
+	</body>
+	<script src="vue.min.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				seen:true,
+				ok:true
+			}
+		})
+	</script>
+</html>

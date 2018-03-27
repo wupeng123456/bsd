@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用v-html输入代码</title>
+	</head>
+	<body>
+		<div id="app">
+			<div v-html="message">
+				
+			</div>
+		</div>
+	</body>
+	<script src="vue.min.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				message:'<h1>Hello word!</h1>'
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>v-if-else</title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div v-if="wupeng === 'A'">A</div>
+			<div v-else-if="wupeng === 'B'">B</div>
+			<div v-else-if="wupeng === 'C'">C</div>
+			<div v-else>
+				!A!B!C
+			</div>
+		</div>
+	</body>
+	<script src="vue.min.js"></script>
+	<script type="text/javascript">
+		
+		new Vue({
+			el:'#app',
+			data:{
+				wupeng:'A'
+			}
+		})
+	</script>
+</html>

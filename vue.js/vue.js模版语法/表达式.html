@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表达式</title>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{5+8}}</p>
+			<p>{{ok ? 'YES' : 'NO'}}</p>
+			<p>{{message.split('').reverse().join('')}}</p>
+			<div v-bind:id="'list-' + id">
+				你好Vue.js
+			</div>
+		</div>
+	</body>
+	<script src="vue.min.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				ok:false,
+				message:'1朋吴',
+				id:1
+			}
+		})
+	</script>
+</html>

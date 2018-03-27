@@ -1,0 +1,27 @@
+解决cnpm,在命令提示行无法运行
+ npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+vue 项目安装过程
+准备工作:
+第一步:cnpm install npm -g  (升级 npm)
+第二部:在用Vue.js构建大型应用时推荐使用NPM安装
+cnpm install npm -g
+第四步:
+全局安装vue-cli
+cnpm install --global vue-cli
+
+正式安装项目
+第一步:创建一个基于webpack模板的新项目
+vue init webpack my-proect(项目名)
+project name (项目名称)
+project description (项目说明)
+author(作者)
+install vue-router(安装的路由)
+USE ESLint to your code?(使用ESLint皮棉代码)
+Setup unit tests with Karma + Mocha?(业力+摩卡设置单元测试？)
+
+
+
+第二步:cd my-proect
+第三步:cnpm install
+第四步:npm run dev
