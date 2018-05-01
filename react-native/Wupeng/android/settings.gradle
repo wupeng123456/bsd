@@ -1,0 +1,3 @@
+rootProject.name = 'Wupeng'
+
+include ':app'
