@@ -8,11 +8,27 @@ import {
     Button,
     TouchableOpacity
 } from 'react-native';
-import { NavigationActions } from 'react-navigation'
+import { NavigationActions } from 'react-navigation'// NavigationActions
 import DrawPage from './DrawPage'
 export default class HomePage extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+
+        }
+    }
+    componentDidMount() {
+        // console.log('1', this.props.navigation)
+        // 获取页面参数
+    }
     one=() => {
-        this.props.navigation.navigate('Zher')
+        this.props.navigation.navigate('Zher', {
+            title: '11111111111',
+        },)
+        //   NavigationActions.navigate({
+    //     routeName: 'PurchaseIn',
+    //     params: { title: '采购入库', rightClick: this.rightClick },
+    //   })
     }
     render() {
         return(

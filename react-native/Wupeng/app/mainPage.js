@@ -4,8 +4,10 @@ import {
     Image,
     Style,
     Button,
+    TouchableOpacity,
 } from 'react-native';
 import { StackNavigator, TabNavigator } from "react-navigation";
+import Icon from 'react-native-vector-icons/Feather'
 
 import HomePage from './sre/HomePage';
 import OderPage from './sre/OderPage';
@@ -61,7 +63,7 @@ goBack = () => {
     console.log(this.props)
 }
 const mainPage = StackNavigator({
-    Home: {
+    HomePage: {
         screen: HomePage,
         navigationOptions: {
             header: null,
@@ -69,41 +71,73 @@ const mainPage = StackNavigator({
     },
     Zher: {
         screen: Zher,
-        navigationOptions: {
-            header: null,
-        }
-//         navigationOptions: {
-//             title: '这世界',  // 导航栏的标题，或者Tab标题 tabBarLabel
-//             // header: ({ state, setParams, goBack }) => {
-//             //     let right;
-//             //     if (state.params.isSelected) {
-//             //         right = (<Button title="取消" onPress={() => setParams({ isSelected: false })}/>);
-//             //     } else {
-//             //         right = (<Button title="选择" onPress={() => setParams({ isSelected: true })}/>);
-//             //     }
-//             //     let left = (<Button title="返回" onPress={() => goBack()}/>);
-//             //     let visible = false;  // 是否显示导航栏
-//             //     return { right, left, visible };
-//             // }, // 自定义的头部组件，使用该属性后系统的头部组件会消失，如果想在页面中自定义，可以设置为null，这样就不会出现页面中留有一个高度为64navigationBar的高度
-//             header: ({ state, setParams, goBack }) => {
-//                 let right = (<Button onPress={this.goBack.bind(this)} title="取消"/>)
-//                 return right
-//             },
-//             headerTitle: '1111', // 头部的标题，即页面的标题
-//             headerBackTitle: '222', //返回标题，默认为 title的标题
-//             headerTruncatedBackTitle: '返回',// 返回标题不能显示时（比如返回标题太长了）显示此标题，默认为'Back'
-//             // headerRight: '222', //头部右边组件
-// // headerLeft：头部左边组件
-// // headerStyle：头部组件的样式
-//             headerTitleStyle: {
-//                 backgroundColor: 'red',
-//                 fontSize: 10,
-//             },//头部标题的样式
-// // headerBackTitleStyle：头部返回标题的样式
-//             headerTintColor: '#0000CD', //头部颜色
-// // headerPressColorAndroid：Android 5.0 以上MD风格的波纹颜色
-// // gesturesEnabled：否能侧滑返回，iOS 默认 true ， Android 默认 false
-//         },
+        navigationOptions: (navigation) => {
+            console.log(navigation)
+            const { state } = navigation.navigation
+            const headerStyle = { backgroundColor: '#1B82D2', elevation: 0};
+            const headerTitle = state.params.title
+            const headerTitleStyle = {
+                        fontSize: 20,
+                        color: 'white',
+                        fontWeight: '500',
+                        alignSelf: 'center',
+                }
+            const headerBackTitle = false
+            return { headerStyle, headerTitle, headerTitleStyle, headerBackTitle }
+        },
+        // navigationOptions: {
+        //     
+        //
+        //     headerLeft: ( navigation ) => {
+        //         console.log(navigation)
+        //     //  return (
+        //     //     <TouchableOpacity
+        //     //       onPress={() => {
+        //     //         // goBack()
+        //     //         DeviceEventEmitter.emit('goBack')
+        //     //         // state.params.leftClick()
+        //     //         if (state.params.leftClick) {
+        //     //           state.params.leftClick()
+        //     //         }
+        //     //       }}
+        //     //     >
+        //     //       <View
+        //     //         style={{
+        //     //           width: 50,
+        //     //           height: '100%',
+        //     //           justifyContent: 'center',
+        //     //           alignItems: 'center',
+        //     //         }}
+        //     //       >
+        //     //         <Icon name="chevron-left" size={24} color="white" />
+        //     //       </View>
+        //     //     </TouchableOpacity>
+        //     //   )
+        //     },
+        // }
+        // navigationOptions配置参数
+        // title：导航栏的标题，或者Tab标题 tabBarLabel
+        // header：自定义的头部组件，使用该属性后系统的头部组件会消失，如果想在页面中自定义，可以设置为null，这样就不会出现页面中留有一个高度为64navigationBar的高度
+        // header: 导航栏设置对象
+        //     visible: 导航栏是否显示
+        //     title: 导航栏的标题, 可以是字符串也可以是个组件
+        //     backTitle: 左上角的返回键文字, 默认是上一个页面的title
+        //     right: 导航栏右按钮
+        //     left: 导航栏左按钮
+        //     style: 导航栏的style
+        //     titleStyle: 导航栏的title的style
+        //     tintColor: 导航栏颜色
+        // headerTitle：头部的标题，即页面的标题
+        // headerBackTitle：返回标题，默认为 title的标题
+        // headerTruncatedBackTitle：返回标题不能显示时（比如返回标题太长了）显示此标题，默认为'Back'
+        // headerRight：头部右边组件
+        // headerLeft：头部左边组件
+        // headerStyle：头部组件的样式
+        // headerTitleStyle：头部标题的样式
+        // headerBackTitleStyle：头部返回标题的样式
+        // headerTintColor：头部颜色
+        // headerPressColorAndroid：Android 5.0 以上MD风格的波纹颜色
+        // gesturesEnabled：否能侧滑返回，iOS 默认 true ， Android 默认 false
     },
     Oder: {
         screen: OderPage,
@@ -114,27 +148,35 @@ const mainPage = StackNavigator({
         //以下参数也可放置在MinePage.js页面
         navigationOptions: Three,
     },
-}
-// , {
-//     animationEnabled: true, // 切换页面时不显示动画
-//     tabBarPosition: 'bottom', // 显示在底端，android 默认是显示在页面顶端的
-//     swipeEnabled: false, // 是否左右滑动,如果有DrawerNavigator,最好设置为false避免手势冲突
-//     backBehavior: 'none', // 按 back 键是否跳转到第一个 Tab， none 为不跳转
-//     tabBarOptions: {
-//         activeTintColor: '#0F9C00', // 文字和图片选中颜色
-//         inactiveTintColor: '#999', // 文字和图片默认颜色
-//         showIcon: true, // android 默认不显示 icon, 需要设置为 true 才会显示
-//         indicatorStyle: {height: 0}, // android 中TabBar下面会显示一条线，高度设为 0 后就不显示线了， 不知道还有没有其它方法隐藏？？？
-//         style: {
-//             backgroundColor: '#444', // TabBar 背景色
-//             height:50
-//         },
-//         labelStyle: {
-//             fontSize: 12, // 文字大小,
-//             marginTop: 0,
-//         },
-//     },
-// }
+},
+{
+    initialRouteName: 'HomePage', // 导航器组件中初始显示页面的路由名称，如果不设置，则默认第一个路由页面为初始显示页面
+    initialRouteParams: {initPara: '初始页面参数'}, // 给初始路由的参数，在初始显示的页面中可以通过this.props.navigation.state.params来获取
+    navigationOptions: {
+      title: '标题',
+      headerTitleStyle: {fontSize: 18, color: 'red'},
+      headerStyle: {height: 49},
+    }, // 路由页面的全局配置项
+    // paths: 'Wupeng://sre/HomePage', // RouteConfigs里面路径设置的映射
+    // 页面跳转方式，有card和modal两种，默认为 card
+    // card：普通app常用的左右切换
+    // modal：只针对iOS平台，类似于iOS中的模态跳转，上下切换
+    mode: 'card',
+    headerMode: 'screen',
+    // headerMode：页面跳转时，头部的动画模式，有 float 、 screen 、 none 三种
+    // float：渐变，类似iOS的原生效果，无透明，默认方式
+    // screen：标题与屏幕一起淡入淡出，如微信QQ的一样
+    // none：没有动画
+    cardStyle: {backgroundColor: "#ffffff"}, // 为各个页面设置统一的样式，比如背景色，字体大小等    
+    transitionConfig: (() => ({
+    })), // 配置页面跳转的动画，覆盖默认的动画效果
+    onTransitionStart: (() => {
+      console.log('页面跳转动画开始')
+    }), // 页面跳转动画即将开始时调用
+    onTransitionEnd: (() => {
+      console.log('页面跳转动画结束')
+    }), // 页面跳转动画一旦完成会马上调用
+  }
 );
 const styles = StyleSheet.create({
     container: {
