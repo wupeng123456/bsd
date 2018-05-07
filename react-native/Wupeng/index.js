@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
+import MainPage from './App';
 
-AppRegistry.registerComponent('Wupeng', () => App);
+AppRegistry.registerComponent('Wupeng', () => MainPage);

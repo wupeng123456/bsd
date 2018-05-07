@@ -11,4 +11,4 @@ const App = StackNavigator({
     //     screen: DetailPagDe,
     // },
 });
-module.exports = App;
+module.exports = MainPage;

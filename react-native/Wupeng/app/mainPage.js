@@ -5,6 +5,8 @@ import {
     Style,
     Button,
     TouchableOpacity,
+    View,
+    Text,
 } from 'react-native';
 import { StackNavigator, TabNavigator } from "react-navigation";
 import Icon from 'react-native-vector-icons/Feather'
@@ -13,6 +15,8 @@ import HomePage from './sre/HomePage';
 import OderPage from './sre/OderPage';
 import MinePage from './sre/MinePage';
 import Zher from './sre/one/one'
+import Order from './sre/one/Order'
+import Flexbox from './sre/one/Flexbox'
 
 const One = {
     header: null,
@@ -62,6 +66,48 @@ const Three = {
 goBack = () => {
     console.log(this.props)
 }
+const StackOptions = (navigation) => {
+    const tabBarVisible = false
+    const { state } = navigation.navigation
+    const headerStyle = { backgroundColor: '#1B82D2', elevation: 20};
+    const headerTitle = state.params.title
+    const headerTitleStyle = {
+                fontSize: 20,
+                color: 'white',
+                fontWeight: '100',
+                alignSelf: 'center',
+        }
+    const headerLeft = (
+            <TouchableOpacity
+              onPress={() => {
+                // goBack()
+                navigation.navigation.goBack()
+                // state.params.leftClick()
+                if (state.params.leftClick) {
+                  state.params.leftClick()
+                }
+              }}
+            >
+              <View style={{ width: 100, display: 'flex',}}>
+                <View
+                style={{
+                  width: 50,
+                  height: 50,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                >
+                <Icon name="chevron-left" size={24} color="white" />
+                </View>
+                {/* <View style={{ width: 50 }}>
+                    <Text>返回</Text>
+                </View> */}
+              </View>
+            </TouchableOpacity>
+          )
+    const headerBackTitle = false
+    return { tabBarVisible, headerStyle, headerTitle, headerTitleStyle, headerBackTitle, headerLeft }
+}
 const mainPage = StackNavigator({
     HomePage: {
         screen: HomePage,
@@ -71,50 +117,7 @@ const mainPage = StackNavigator({
     },
     Zher: {
         screen: Zher,
-        navigationOptions: (navigation) => {
-            console.log(navigation)
-            const { state } = navigation.navigation
-            const headerStyle = { backgroundColor: '#1B82D2', elevation: 0};
-            const headerTitle = state.params.title
-            const headerTitleStyle = {
-                        fontSize: 20,
-                        color: 'white',
-                        fontWeight: '500',
-                        alignSelf: 'center',
-                }
-            const headerBackTitle = false
-            return { headerStyle, headerTitle, headerTitleStyle, headerBackTitle }
-        },
-        // navigationOptions: {
-        //     
-        //
-        //     headerLeft: ( navigation ) => {
-        //         console.log(navigation)
-        //     //  return (
-        //     //     <TouchableOpacity
-        //     //       onPress={() => {
-        //     //         // goBack()
-        //     //         DeviceEventEmitter.emit('goBack')
-        //     //         // state.params.leftClick()
-        //     //         if (state.params.leftClick) {
-        //     //           state.params.leftClick()
-        //     //         }
-        //     //       }}
-        //     //     >
-        //     //       <View
-        //     //         style={{
-        //     //           width: 50,
-        //     //           height: '100%',
-        //     //           justifyContent: 'center',
-        //     //           alignItems: 'center',
-        //     //         }}
-        //     //       >
-        //     //         <Icon name="chevron-left" size={24} color="white" />
-        //     //       </View>
-        //     //     </TouchableOpacity>
-        //     //   )
-        //     },
-        // }
+        navigationOptions: ( navigation ) => StackOptions( navigation ),
         // navigationOptions配置参数
         // title：导航栏的标题，或者Tab标题 tabBarLabel
         // header：自定义的头部组件，使用该属性后系统的头部组件会消失，如果想在页面中自定义，可以设置为null，这样就不会出现页面中留有一个高度为64navigationBar的高度
@@ -139,14 +142,13 @@ const mainPage = StackNavigator({
         // headerPressColorAndroid：Android 5.0 以上MD风格的波纹颜色
         // gesturesEnabled：否能侧滑返回，iOS 默认 true ， Android 默认 false
     },
-    Oder: {
-        screen: OderPage,
-        navigationOptions: Two,
+    Order: {
+        screen: Order,
+        navigationOptions: ( navigation ) => StackOptions( navigation ),
     },
-    Mine: {
-        screen: MinePage,
-        //以下参数也可放置在MinePage.js页面
-        navigationOptions: Three,
+    Flexbox: {
+        screen: Flexbox,
+        navigationOptions: ( navigation ) => StackOptions( navigation ),
     },
 },
 {
@@ -154,8 +156,8 @@ const mainPage = StackNavigator({
     initialRouteParams: {initPara: '初始页面参数'}, // 给初始路由的参数，在初始显示的页面中可以通过this.props.navigation.state.params来获取
     navigationOptions: {
       title: '标题',
-      headerTitleStyle: {fontSize: 18, color: 'red'},
-      headerStyle: {height: 49},
+      headerTitleStyle: {fontSize: 100, color: 'red'},
+      headerStyle: {height: 40, marginLeft: 50},
     }, // 路由页面的全局配置项
     // paths: 'Wupeng://sre/HomePage', // RouteConfigs里面路径设置的映射
     // 页面跳转方式，有card和modal两种，默认为 card
@@ -171,10 +173,10 @@ const mainPage = StackNavigator({
     transitionConfig: (() => ({
     })), // 配置页面跳转的动画，覆盖默认的动画效果
     onTransitionStart: (() => {
-      console.log('页面跳转动画开始')
+    //   console.log('页面跳转动画开始')
     }), // 页面跳转动画即将开始时调用
     onTransitionEnd: (() => {
-      console.log('页面跳转动画结束')
+    //   console.log('页面跳转动画结束')
     }), // 页面跳转动画一旦完成会马上调用
   }
 );

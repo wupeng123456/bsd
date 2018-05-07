@@ -1,3 +1,10 @@
+/*
+ * @Author: Wupeng
+ * @Date: 2018-05-02 13:16:22 
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2018-05-02 19:41:58
+ * Home
+ */
 import React, {Component} from 'react';
 import {
     AppRegistry,
@@ -6,7 +13,8 @@ import {
     View,
     Image,
     Button,
-    TouchableOpacity
+    TouchableOpacity,
+    ScrollView,
 } from 'react-native';
 import { NavigationActions } from 'react-navigation'// NavigationActions
 import DrawPage from './DrawPage'
@@ -21,22 +29,36 @@ export default class HomePage extends Component {
         // console.log('1', this.props.navigation)
         // 获取页面参数
     }
-    one=() => {
+    one = () => {
         this.props.navigation.navigate('Zher', {
-            title: '11111111111',
+            title: 'react-native之flex-box布局',
         },)
-        //   NavigationActions.navigate({
-    //     routeName: 'PurchaseIn',
-    //     params: { title: '采购入库', rightClick: this.rightClick },
-    //   })
+    }
+    Two = (e, x) => {
+        this.props.navigation.navigate(e, {
+            title: x,
+        })
     }
     render() {
         return(
-            // <DrawPage/>
             <View style={styles.container}>
+                <ScrollView>
                 <View style={styles.contend}>
-                  <Text onPress={this.one.bind(this)}>1111111111</Text>
+                  <Text>react-native</Text>
                 </View>
+                <View>
+                  <View style={styles.View}>
+                    <Text style={styles.Text} onPress={this.one.bind(this)}>1.react-native之flex-box布局</Text>
+                  </View>
+                  <View style={styles.View}>
+                    <Text style={[styles.Text, { backgroundColor: 'white'}]} onPress={this.Two.bind(this, 'Order', 'react-native之伸缩项目的属性')}>2.react-native之伸缩项目的属性</Text>
+                  </View>
+                  <View style={styles.View}>
+                    <Text style={[styles.Text, { backgroundColor: 'white'}]} onPress={this.Two.bind(this, 'Flexbox', 'react-native之在React Native中使用flexbox')}>3.react-native之在React Native中使用flexbox</Text>
+                  </View>
+                </View>
+                {/*  */}
+                </ScrollView>
             </View>
         )
     }
@@ -44,13 +66,24 @@ export default class HomePage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // justifyContent: 'center',
-        // alignItems: 'center',
     },
     contend: {
-        backgroundColor: 'red',
+        height: 50,
+        // borderBottomColor: '#DCDCDC',
+        borderBottomWidth: 1,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    View: {
+        height: 50,
+        borderBottomColor: '#DCDCDC',
+        borderBottomWidth: 1,
+        justifyContent: 'center',
+        paddingLeft: 10,
+    },
+    Text: {
+        color: 'black',
+        fontWeight: 'bold',
     },
     icon:{
         width:20,
