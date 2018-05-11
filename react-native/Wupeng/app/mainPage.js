@@ -17,6 +17,7 @@ import MinePage from './sre/MinePage';
 import Zher from './sre/one/one'
 import Order from './sre/one/Order'
 import Flexbox from './sre/one/Flexbox'
+import ViewW from './sre/one/ViewW'
 
 const One = {
     header: null,
@@ -148,6 +149,10 @@ const mainPage = StackNavigator({
     },
     Flexbox: {
         screen: Flexbox,
+        navigationOptions: ( navigation ) => StackOptions( navigation ),
+    },
+    ViewW: {
+        screen: ViewW,
         navigationOptions: ( navigation ) => StackOptions( navigation ),
     },
 },

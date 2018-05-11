@@ -2,7 +2,7 @@
  * @Author: Wupeng
  * @Date: 2018-05-02 13:16:22 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2018-05-02 19:41:58
+ * @Last Modified time: 2018-05-09 14:30:50
  * Home
  */
 import React, {Component} from 'react';
@@ -55,6 +55,9 @@ export default class HomePage extends Component {
                   </View>
                   <View style={styles.View}>
                     <Text style={[styles.Text, { backgroundColor: 'white'}]} onPress={this.Two.bind(this, 'Flexbox', 'react-native之在React Native中使用flexbox')}>3.react-native之在React Native中使用flexbox</Text>
+                  </View>
+                  <View style={styles.View}>
+                    <Text style={[styles.Text, { backgroundColor: 'white'}]} onPress={this.Two.bind(this, 'ViewW', 'React NativeView组件')}>4.React NativeView组件</Text>
                   </View>
                 </View>
                 {/*  */}
