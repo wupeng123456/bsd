@@ -21,22 +21,22 @@ export default class ViewW extends Component {
         return (
             <View style={styles.container}>
                 <View style={[styles.item, styles.center, styles.border1]}>
-                    <Text>酒店</Text>
+                    <Text style={{ color: 'white'}}>酒店</Text>
                 </View>
                 <View style={styles.item}>
                     <View style={[styles.flex, styles.center, styles.border5]}>
-                        <Text>海外酒店</Text>
+                        <Text style={{ color: 'white'}}>海外酒店</Text>
                     </View>
                     <View style={[styles.flex, styles.center]}>
-                        <Text>特惠酒店</Text>
+                        <Text style={{ color: 'white'}}>特惠酒店</Text>
                     </View>
                 </View>
                 <View style={[styles.item, styles.border4]}>
                     <View style={[styles.flex, styles.center, styles.border2]}>
-                        <Text>客栈</Text>
+                        <Text style={{ color: 'white'}}>客栈</Text>
                     </View>
                     <View style={[styles.flex, styles.center, styles.border3]}>
-                        <Text>特惠</Text>
+                        <Text style={{ color: 'white'}}>特惠</Text>
                     </View>
                 </View>
             </View>
