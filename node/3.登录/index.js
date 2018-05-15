@@ -10,6 +10,47 @@ var form = multer()
 app.use(express.static('pubilc'))
 app.use(bodyParse.urlencoded({ extended: false }))
 app.use(bodyParse.json())
+// 设置注册接口
+app.post('/register', function(request, response) {
+    response.header("Access-Control-Allow-Origin", "*");
+    response.header("Content-Type", "application/json;charset=utf-8");
+    fs.exists('./pubilc/data', function(result){
+        if (!result) {
+            console.log('注册文件夹不存在需要创建')
+            fs.mkdirSync('public/data')
+        } else {
+            var body = '', jsonStr;
+            request.on('data', function (chunk) {
+                body += chunk; //读取参数流转化为字符串
+            });
+            request.on('end', function () {
+                try {
+                    jsonStr = JSON.parse(body)
+                } catch (err) {
+                    jsonStr = null
+                }
+                fs.readFile('pubilc/data/login.json', function(error, data) {
+                    if (data) {
+                        var value = data.toString()
+                        value = JSON.parse(value)
+                        value.login.push(jsonStr)
+                        var string = JSON.stringify(value)
+                        console.log(value, string)
+                        fs.appendFile('public/data/login.json',string, function(error){
+                            if (error) {
+                                console.log('有错误信息，写入失败')
+                                response.send('数据保存失败，请重试')
+                            } else {
+                                console.log('没有错误信息，写入成功')
+                                response.send('数据保存成功')
+                            }
+                        })
+                    }
+                })
+            })
+        }
+    })
+})
 // 设置登录接口
 app.post('/login', function(request, response) {
     response.header("Access-Control-Allow-Origin", "*");
