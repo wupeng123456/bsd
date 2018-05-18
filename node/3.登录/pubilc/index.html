@@ -9,78 +9,308 @@
 	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        #body{
-            width: 100vw;
-            min-width: 1366px;
-            height: 100vh;
-            min-height: 768px;
-            background-image: url(./img/1.jpg);
-            background-size: 100% 100%;
-            display: flex;
-            -webkit-justify-content: center;
-            justify-content: center;
-        }
-        #from {
-            width: 500px;
-            height: 500px;
-            /* background-color: red; */
-            padding-top: 200px;
-        }
-        .input {
-            width: 300px;
-            height: 25px;
-            border: 0;
-        }
+
+@font-face {
+	font-family: 'iconfont';
+	src: url('//at.alicdn.com/t/font_1463147324_946932.eot'); /* IE9*/
+	src: url('//at.alicdn.com/t/font_1463147324_946932.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('http://at.alicdn.com/t/font_1463147324_946932.woff') format('woff'), /* chrome銆乫irefox */
+	url('http://at.alicdn.com/t/font_1463147324_946932.ttf') format('truetype'), /* chrome銆乫irefox銆乷pera銆丼afari, Android, iOS 4.2+*/
+	url('//at.alicdn.com/t/font_1463147324_946932.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+*{margin: 0;padding: 0}
+body{
+/*     margin:0 auto; */
+    background-color:#069;
+/*     width:80%; */
+/*     height:800px; */
+    border:1px solid #F00;
+}
+li{list-style: none;}
+form a{text-decoration: none;}
+html,body {
+	background: url(background.png);
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+}
+.wrapper{text-align: center;}
+.header{
+	font-size: 25px;
+	/* font-family: 寰蒋闆呴粦; */
+	color: rgb(98,94,91);
+}
+.header span{
+	font-size: 30px;
+	font-family: "Brush Script Std";
+}
+form{
+	background: url(input-bg.png);
+	width: 260px;
+	height: 260px;
+	margin: 35px auto;
+	padding: 30px;
+	box-shadow:0px 1px 2px 1px #aaaaaa,
+	           inset 0px 1px 1px rgba(255,255,255,0.7);
+	border-radius: 3px;
+}
+form ul{
+	width: 100%;
+	height: 100%;
+	text-align: left;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+}
+ul li div{
+	width: 260px;
+	height: 40px;
+	background: #e1dcd8;
+	color: rgb(98,94,91);
+	box-shadow: inset 0px 2px 5px #aaaaaa;
+	border-radius: 5px;
+	position: relative;
+}
+ul li .yonghu{
+	font-family: iconfont;
+	position: absolute;
+	top: 12px;
+	left: 10px;
+}
+ul li .mima{
+	font-family: iconfont;
+	position: absolute;
+	top: 12px;
+	left: 10px;
+}
+ul li div input{
+	height: 40px;
+	width: 190px;
+	padding: 0 35px;
+	border: none;
+	background: #e1dcd8;
+	color: rgb(98,94,91);
+	box-shadow:
+			0px 1px 1px rgba(255,255,255,0.7),
+			inset 0px 2px 5px #aaaaaa;
+	border-radius: 5px;
+}
+ul li input:focus{
+	outline: none;
+	background: #f5f2ef;
+}
+ul .remember{
+	font-size: 14px;
+	/* font-family: 寰蒋闆呴粦; */
+	font-weight: bold;
+	color: rgb(98,94,91);
+	position: relative;
+}
+ul .remember input[type*="checkbox"]{
+	width: 20px;
+	height: 20px;
+	vertical-align: super;
+	margin-right: 12px;
+	visibility: hidden;
+}
+.remember label {
+	cursor: pointer;
+	position: absolute;
+	width: 22px;
+	height: 22px;
+	top: 7px;
+	left: 0;
+	background: #eee;
+	border:1px solid #cccccc;
+	border-radius: 4px;
+}
+/*Display the tick inside the checkbox*/
+.remember label:after {
+	opacity: 0.4;
+	content: '';
+	position: absolute;
+	width: 12px;
+	height: 5px;
+	background: transparent;
+	top: 6px;
+	left: 4px;
+	border: 3px solid #74884a;
+	border-top: none;
+	border-right: none;
+
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+/*Create the hover event of the tick*/
+.remember label:hover::after {
+	opacity: 0.7;
+}
+ /*Create the checkbox state for the tick*/
+.remember input[type=checkbox]:checked + label:after {
+	opacity: 1;
+	border-color: #74884a;
+}
+ul li a{
+	font-size: 14px;
+	/* font-family: 榛戜綋; */
+	color: rgb(152,142,135);
+}
+ul li input[type*="button"]{
+	width: 100%;
+	height: 40px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #ffffff;
+	background: -moz-linear-gradient(
+			top,
+			#94aa64 0%,
+			#7a924a 50%,
+			#607738);
+	background: -webkit-gradient(
+			linear, left top, left bottom,
+			from(#94aa64),
+			color-stop(0.50, #7a924a),
+			to(#607738));
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #7d8862;
+	-moz-box-shadow:
+			0px 1px 0px rgba(170,170,170,1),
+			inset 0px 1px 1px rgba(255,255,255,0.7);
+	-webkit-box-shadow:
+			0px 1px 0px rgba(170,170,170,1),
+			inset 0px 1px 1px rgba(255,255,255,0.7);
+	box-shadow:
+			0px 1px 0px rgba(170,170,170,1),
+			inset 0px 1px 1px rgba(255,255,255,0.7);
+	text-shadow:
+			0px -1px 0px rgba(000,000,000,0.3),
+			0px 0px 0px rgba(255,255,255,0);
+}
+ul li input[type*="button"]:hover{
+	opacity: 0.8;
+}
+ul li input[type*="button"]:active{
+	width: 100%;
+	height: 40px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #ffffff;
+	background: -moz-linear-gradient(
+			top,
+			#607738 0%,
+			#7a924a 50%,
+			#94aa64 );
+	background: -webkit-gradient(
+			linear, left top, left bottom,
+			from(#607738),
+			color-stop(0.50, #7a924a),
+			to(#94aa64));
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #7d8862;
+	-moz-box-shadow:
+			0px -1px 0px rgba(170,170,170,1),
+			inset 0px -1px 1px rgba(255,255,255,0.7);
+	-webkit-box-shadow:
+			0px -1px 0px rgba(170,170,170,1),
+			inset 0px -1px 1px rgba(255,255,255,0.7);
+	box-shadow:
+			0px -1px 0px rgba(170,170,170,1),
+			inset 0px -1px 1px rgba(255,255,255,0.7);
+	text-shadow:
+			0px 1px 0px rgba(000,000,000,0.3),
+			0px 0px 0px rgba(255,255,255,0);
+}
+.footer{
+	font-size: 12px;
+	/* font-family: 榛戜綋; */
+	color: rgb(98,94,91);
+}
+.footer a{
+	color: rgb(152,142,135);
+}
     </style>
 </head>
 <body>
-    <div id="body">
-        <div id="from">
-                <form class="form-horizontal">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">账号</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="password" 
-                                       placeholder="请输入账号">
+        <div class="wrapper">
+                <div class="header">Login to <span>love.ly</span></div>
+                <form action="" method="post">
+                    <ul>
+                        <li>
+                            <div class="text" style="width: 90%">
+                                <span class="yonghu"></span><input id="username" type="text" placeholder="123456">
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">密码</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="usename" 
-                                       placeholder="请输入密码">
+                        </li>
+                        <li>
+                            <div class="password" style="width: 90%">
+                                <span class="mima"></span><input id="password" type="password" placeholder="123456">
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">请记住我
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button class="btn btn-default">登录</button>
-                                <button onclick="register()" class="btn btn-default">注册</button>
-                            </div>
-                        </div>
-                    </form>
-        </div>
-    </div>
+                        </li>
+                        <li class="remember">
+                            <input type="checkbox">Remember Me
+                        </li>
+                        <li>
+                            <a href="">Forgot username or password?</a>
+                        </li>
+                        <li>
+                            <input type="button" onclick="Login()" value="Login">
+                        </li>
+                    </ul>
+                </form>
+                <div class="footer">
+                    <p>Love.ly Personal Blog .PSD Template <a href="">Copyright ©2012 Matt Gentile</a></p>
+                    <p><a href="">Love.ly Home</a> | <a href="">Bolg
+                    </a> | <a href="">Work</a> | <a href="">Terms of Use</a> | <a href="">Contact Me</a></p>
+                </div>
+            </div>
 </body>
 <script>
+    window.onload = function () {
+        var user = localStorage.getItem('user')
+        user = JSON.parse(user)
+        console.log(user)
+        var is = ''
+        for (var i = 0; i < user.length; i++) {
+            is += String.fromCharCode(user[i])
+        }
+        console.log(is)
+        var xhr = new XMLHttpRequest()
+        xhr.open('POST', 'http://127.0.0.1:5000/wm/packingDelivery/selNotReturnShopNo', true)
+        xhr.setRequestHeader('Accept', 'application/json')
+        xhr.send(is)
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    console.log('登录成功')
+                    var data = JSON.parse(xhr.response)
+                    console.log(data)
+                    if (data.statis) {
+                        alert(data.errormessage)
+                    } else {
+                        alert(data.errormessage)
+                    }
+                } else {
+                    console.log('登录失败')
+                    console.log(xhr.response)
+                }
+            }
+        }
+    }
     function register() {
         var password = document.getElementById('password').value
-        var usename = document.getElementById('usename').value
+        var username = document.getElementById('username').value
         var data = {
             password: password,
-            usename: usename,
+            username: username,
         }
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/register', true)
@@ -93,6 +323,44 @@
                     console.log(xhr.response)
                 } else {
                     console.log('注册失败')
+                    console.log(xhr.response)
+                }
+            }
+        }
+    }
+    function Login() {
+        var password = document.getElementById('password').value
+        var username = document.getElementById('username').value
+        var data = {
+            password: password,
+            username: username,
+        }
+        var xhr = new XMLHttpRequest()
+        xhr.open('POST', 'http://127.0.0.1:5000/login', true)
+        xhr.setRequestHeader('Accept', 'application/json')
+        xhr.send(JSON.stringify(data))
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    console.log('登录成功')
+                    console.log(xhr.response)
+                    var data = JSON.parse(xhr.response)
+                    var sd = JSON.stringify(data.data)
+                    var mis = []
+                    for (var i = 0; i < sd.length; i++) {
+                        mis.push(sd.charCodeAt(i))
+                    }
+                    console.log(sd)
+                    // localStorage.setItem(sitename, siteurl);
+                    localStorage.setItem('user', JSON.stringify(mis))
+                    console.log(data)
+                    if (data.statis) {
+                        alert(data.errormessage)
+                    } else {
+                        alert(data.errormessage)
+                    }
+                } else {
+                    console.log('登录失败')
                     console.log(xhr.response)
                 }
             }
