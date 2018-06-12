@@ -9,7 +9,7 @@ const Detail = ({ userDetail }) => {
   for (let key in data) {
     if ({}.hasOwnProperty.call(data, key)) {
       content.push(<div key={key} className={styles.item}>
-        <div>{key}</div>
+        <div style={{ backgroundColor: 'blue'}}>{key}</div>
         <div>{String(data[key])}</div>
       </div>)
     }

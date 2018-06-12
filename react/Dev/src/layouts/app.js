@@ -40,11 +40,11 @@ const App = ({
     tabList,
   } = app
   let { pathname } = location
-  const title = menu.find((e) => {
-    if (pathname === e.route) {
-      return e.route
-    }
-  })
+  // const title = menu.find((e) => {
+  //   if (pathname === e.route) {
+  //     return e.route
+  //   }
+  // })
   pathname = pathname.startsWith('/') ? pathname : `/${pathname}`
   const { iconFontJS, iconFontCSS, logo } = config
   const current = menu.filter(item => pathToRegexp(item.route || '').exec(pathname))
@@ -148,7 +148,7 @@ const App = ({
         <Layout style={{ height: '100vh', overflow: 'scroll' }} id="mainContainer">
           <BackTop target={() => document.getElementById('mainContainer')} />
           <Header {...headerProps} />
-          <Content>
+          <Content style={{ margin: 0, padding: 0}}>
             {/* <Bread {...breadProps} />
             {hasPermission ? children : <Error />} */}
             <Tab {...breadProps}/>

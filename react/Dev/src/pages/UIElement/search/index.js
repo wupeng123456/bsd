@@ -45,6 +45,11 @@ const SearchPage = () => (<Page inner>
           {
             title: '参数',
             dataIndex: 'props',
+            render: (text) => {
+              return (
+                <div onClick={(text) => {alert(`${text}`)}}>{text}</div>
+              )
+            },
           },
           {
             title: '说明',
