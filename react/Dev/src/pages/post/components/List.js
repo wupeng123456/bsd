@@ -1,5 +1,6 @@
 import React from 'react'
 import { Table } from 'antd'
+import { Link } from 'react-router-dom'
 import styles from './List.less'
 
 const List = ({ ...tableProps }) => {
@@ -13,6 +14,11 @@ const List = ({ ...tableProps }) => {
     }, {
       title: 'Title',
       dataIndex: 'title',
+      render: (text, record) => {
+        return (
+          <Link to={`post/${record.views}`}>{text}</Link>
+        )
+      },
     }, {
       title: 'Author',
       dataIndex: 'author',

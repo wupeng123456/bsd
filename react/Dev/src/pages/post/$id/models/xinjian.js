@@ -3,7 +3,7 @@ import { query } from '../../services/user'
 
 export default {
 
-  namespace: 'userDetail',
+  namespace: 'postDetail',
 
   state: {
     data: {},
@@ -12,8 +12,8 @@ export default {
   subscriptions: {
     setup ({ dispatch, history }) {
       history.listen(({ pathname }) => {
-        console.log(';o', 125, pathname)
-        const match = pathToRegexp('/user/:id').exec(pathname)
+        console.log(';o', 126, pathname)
+        const match = pathToRegexp('/post/:id').exec(pathname)
         if (match) {
           dispatch({ type: 'query', payload: { id: match[1] } })
         }

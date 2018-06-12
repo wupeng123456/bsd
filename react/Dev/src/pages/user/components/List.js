@@ -41,7 +41,6 @@ const List = ({
       dataIndex: 'name',
       key: 'name',
       render: (text, record) => {
-        console.log(record)
         return(<Link to={`user/${record.id}`}>{text}</Link>)},
     }, {
       title: 'NickName',
