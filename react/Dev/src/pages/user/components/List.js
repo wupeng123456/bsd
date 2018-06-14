@@ -100,7 +100,6 @@ const List = ({
       size="small"
       bordered
       scroll={{ x: 1250 }}
-      filterMultiple={false}
       columns={columns}
       simple
       rowKey={record => record.id}
@@ -110,7 +109,7 @@ const List = ({
       onRow={(record) =>{
         return {
           onClick: () => {
-            console.log(record)
+            tableProps.Add(record)
           },
         }
       }}

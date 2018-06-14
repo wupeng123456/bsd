@@ -129,7 +129,6 @@ const App = ({
       {children}
     </div>)
   }
-  console.log(document.documentElement.clientHeight - 58)
   return (
     <div>
       <Loader fullScreen spinning={loading.effects['app/query']} />

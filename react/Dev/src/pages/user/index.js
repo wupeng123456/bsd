@@ -96,6 +96,12 @@ const User = ({
         })
       },
     },
+    Add: (item) => {
+      dispatch({
+        type: 'user/Add',
+        payload: item,
+      })
+    },
   }
 
   const filterProps = {

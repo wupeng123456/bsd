@@ -5,6 +5,7 @@ import { config } from 'utils'
 import { create, remove, update } from '../services/user'
 import * as usersService from '../services/users'
 import { pageModel } from 'utils/model'
+// import { push } from 'react-router-redux';
 
 const { query } = usersService
 const { prefix } = config
@@ -61,6 +62,26 @@ export default modelExtend(pageModel, {
       } else {
         throw data
       }
+    },
+    // call, put, select
+    * Add ({payload}, { put, select }) {
+    const { selectedRowKeys } = yield select(_ => _.user)
+    if (selectedRowKeys.every((item)=>{return(item === payload.id)})) {
+      yield put({
+        type: 'updateState',
+        payload: {
+          selectedRowKeys,
+        },
+      })
+    } else {
+      selectedRowKeys.push(payload)
+      yield put({
+        type: 'updateState',
+        payload: {
+          selectedRowKeys,
+        },
+      })
+    }
     },
 
     * multiDelete ({ payload }, { call, put }) {
