@@ -86,22 +86,33 @@ const List = ({
   const AnimateBody = (props) => {
     return <AnimTableBody {...props} />
   }
-
+  // const moveRow = (dragIndex, hoverIndex) => {
+  //   console.log(dragIndex, hoverIndex)
+  //     }
+    
   const CommonBody = (props) => {
     return <tbody {...props} />
   }
-
   return (
     <Table
       {...tableProps}
       className={classnames(styles.table, { [styles.motion]: isMotion })}
+      size="small"
       bordered
       scroll={{ x: 1250 }}
+      filterMultiple={false}
       columns={columns}
       simple
       rowKey={record => record.id}
       components={{
         body: { wrapper: isMotion ? AnimateBody : CommonBody },
+      }}
+      onRow={(record) =>{
+        return {
+          onClick: () => {
+            console.log(record)
+          },
+        }
       }}
     />
   )

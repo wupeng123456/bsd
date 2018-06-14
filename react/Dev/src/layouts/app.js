@@ -15,7 +15,11 @@ import Tab from './Tab'
 import '../themes/index.less'
 import './app.less'
 
-const { Content, Footer, Sider } = Layout
+const {
+  Content,
+  // Footer,
+  Sider,
+ } = Layout
 const {
   Header,
   // Bread,
@@ -125,12 +129,12 @@ const App = ({
       {children}
     </div>)
   }
-
+  console.log(document.documentElement.clientHeight - 58)
   return (
     <div>
       <Loader fullScreen spinning={loading.effects['app/query']} />
       <Helmet>
-        <title>ANTD ADMIN</title>
+        <title>练习测试</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href={logo} type="image/x-icon" />
         {iconFontJS && <script src={iconFontJS} />}
@@ -148,14 +152,14 @@ const App = ({
         <Layout style={{ height: '100vh', overflow: 'scroll' }} id="mainContainer">
           <BackTop target={() => document.getElementById('mainContainer')} />
           <Header {...headerProps} />
-          <Content style={{ margin: 0, padding: 0}}>
+          <Content style={{ paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddintLeft: 15, margin: 0, left: 15, backgroundColor: 'white'}}>
             {/* <Bread {...breadProps} />
             {hasPermission ? children : <Error />} */}
             <Tab {...breadProps}/>
           </Content>
-          <Footer >
+          {/* <Footer >
             {config.footerText}
-          </Footer>
+          </Footer> */}
         </Layout>
       </Layout>
     </div>

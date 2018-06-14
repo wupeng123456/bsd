@@ -9,6 +9,13 @@ let database = [
     route: '/dashboard',
   },
   {
+    id: '8',
+    // <Icon type="up-square-o" />
+    icon: 'up-square-o',
+    name: 'Select',
+    route: '/select',
+  },
+  {
     id: '2',
     bpid: '1',
     name: 'Users',
@@ -21,6 +28,13 @@ let database = [
     name: 'Posts',
     icon: 'shopping-cart',
     route: '/post',
+  },
+  {
+    id: '71',
+    mpid: '-1',
+    bpid: '2',
+    name: 'Posts Detail',
+    route: '/post/:id',
   },
   {
     id: '21',

@@ -23,6 +23,7 @@ function Dashboard ({ dashboard, loading }) {
   </Col>))
 
   return (
+    <div style={{ width: '100%', height: document.documentElement.clientHeight - 80,  overflow: 'auto'}}>
     <Page loading={loading.models.dashboard && sales.length === 0} className={styles.dashboard}>
       <Row gutter={24}>
         {numberCards}
@@ -99,6 +100,7 @@ function Dashboard ({ dashboard, loading }) {
         </Col>
       </Row>
     </Page>
+    </div>
   )
 }
 

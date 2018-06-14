@@ -3,7 +3,7 @@ import { query } from '../../services/user'
 
 export default {
 
-  namespace: 'postDetail',
+  namespace: 'xinjian',
 
   state: {
     data: {},
@@ -12,7 +12,6 @@ export default {
   subscriptions: {
     setup ({ dispatch, history }) {
       history.listen(({ pathname }) => {
-        console.log(';o', 126, pathname)
         const match = pathToRegexp('/post/:id').exec(pathname)
         if (match) {
           dispatch({ type: 'query', payload: { id: match[1] } })

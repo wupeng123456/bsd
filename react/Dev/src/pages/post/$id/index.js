@@ -1,14 +1,9 @@
 import React from 'react'
 import { connect } from 'dva'
 
-@connect(({state, postDetail, loading}) => ({
+@connect(state => ({
     xinjian: state.xinjian,
-    postDetail,
-    loading: loading.models.postDetail,
 }))
-// (
-//     ({ userDetail, loading }) => ({ userDetail, loading: loading.models.userDetail })
-// )
 
 export default class Xiangqing extends React.Component {
     constructor (props) {
@@ -18,6 +13,7 @@ export default class Xiangqing extends React.Component {
         }
     }
     render () {
+        console.log(this.props)
         return (
             <div>123</div>
         )

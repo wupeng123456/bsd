@@ -66,12 +66,13 @@ class Tab extends React.Component {
               hideAdd
               className={styles.tabs}
               onChange={this.onChange}
+              tabBarStyle={{margin:0 , padding: 0, height: 29}}
               activeKey={this.state.activeKey}
               size="small"
               type="editable-card"
               onEdit={this.onEdit}
             >
-              {this.state.tabList.map(pane => <TabPane style={{backgroundColor: 'red', margin: 0}} tab={pane.title} key={pane.key} closable={pane.closable}>{hasPermission ? children : <Error />}</TabPane>)}
+              {this.state.tabList.map(pane => <TabPane tab={pane.title} key={pane.key} closable={pane.closable}>{hasPermission ? children : <Error />}</TabPane>)}
             </Tabs>
           </div>
         )

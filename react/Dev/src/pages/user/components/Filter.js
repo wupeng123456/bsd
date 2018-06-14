@@ -82,12 +82,13 @@ const Filter = ({
   return (
     <Row gutter={24}>
       <Col {...ColProps} xl={{ span: 4 }} md={{ span: 8 }}>
-        {getFieldDecorator('name', { initialValue: name })(<Search placeholder="Search Name" onSearch={handleSubmit} />)}
+        {getFieldDecorator('name', { initialValue: name })(<Search size="small" placeholder="Search Name" onSearch={handleSubmit} />)}
       </Col>
       <Col {...ColProps} xl={{ span: 4 }} md={{ span: 8 }} id="addressCascader">
         {getFieldDecorator('address', { initialValue: address })(<Cascader
           style={{ width: '100%' }}
           options={city}
+          size="small"
           placeholder="Please pick an address"
           onChange={handleChange.bind(null, 'address')}
           getPopupContainer={() => document.getElementById('addressCascader')}
@@ -97,6 +98,7 @@ const Filter = ({
         <FilterItem label="Createtime">
           {getFieldDecorator('createTime', { initialValue: initialCreateTime })(<RangePicker
             style={{ width: '100%' }}
+            size="small"
             onChange={handleChange.bind(null, 'createTime')}
             getCalendarContainer={() => {
               return document.getElementById('createTimeRangePicker')
@@ -107,12 +109,12 @@ const Filter = ({
       <Col {...TwoColProps} xl={{ span: 10 }} md={{ span: 24 }} sm={{ span: 24 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
           <div>
-            <Button type="primary" className="margin-right" onClick={handleSubmit}>Search</Button>
-            <Button onClick={handleReset}>Reset</Button>
+            <Button size="small" type="primary" className="margin-right" onClick={handleSubmit}>搜索</Button>
+            <Button size="small" onClick={handleReset}>清空</Button>
           </div>
           <div className="flex-vertical-center">
-            <Switch className="ant-switch-large" style={{ marginRight: 16 }} defaultChecked={isMotion} onChange={switchIsMotion} checkedChildren="Motion" unCheckedChildren="Motion" />
-            <Button type="ghost" onClick={onAdd}>Create</Button>
+            <Switch size="small" className="ant-switch-large" style={{ marginRight: 16 }} defaultChecked={isMotion} onChange={switchIsMotion} checkedChildren="Motion" unCheckedChildren="Motion" />
+            <Button size="small" type="ghost" onClick={onAdd}>Create</Button>
           </div>
         </div>
       </Col>

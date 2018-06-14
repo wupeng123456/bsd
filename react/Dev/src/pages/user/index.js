@@ -2,12 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { routerRedux } from 'dva/router'
 import { connect } from 'dva'
-import { Row, Col, Button, Popconfirm } from 'antd'
+// import { Row, Col, Button, Popconfirm } from 'antd'
 import { Page } from 'components'
 import queryString from 'query-string'
 import List from './components/List'
 import Filter from './components/Filter'
 import Modal from './components/Modal'
+import { body } from '../../utils/config' 
 
 
 const User = ({
@@ -121,24 +122,25 @@ const User = ({
     },
   }
 
-  const handleDeleteItems = () => {
-    dispatch({
-      type: 'user/multiDelete',
-      payload: {
-        ids: selectedRowKeys,
-      },
-    })
-      .then(() => {
-        handleRefresh({
-          page: (list.length === selectedRowKeys.length && pagination.current > 1) ? pagination.current - 1 : pagination.current,
-        })
-      })
-  }
+  // const handleDeleteItems = () => {
+  //   dispatch({
+  //     type: 'user/multiDelete',
+  //     payload: {
+  //       ids: selectedRowKeys,
+  //     },
+  //   })
+  //     .then(() => {
+  //       handleRefresh({
+  //         page: (list.length === selectedRowKeys.length && pagination.current > 1) ? pagination.current - 1 : pagination.current,
+  //       })
+  //     })
+  // }
 
   return (
+     <div style={body}>
     <Page inner>
       <Filter {...filterProps} />
-      {
+      {/* {
         selectedRowKeys.length > 0 &&
         <Row style={{ marginBottom: 24, textAlign: 'right', fontSize: 13 }}>
           <Col>
@@ -148,10 +150,11 @@ const User = ({
             </Popconfirm>
           </Col>
         </Row>
-      }
+      } */}
       <List {...listProps} />
       {modalVisible && <Modal {...modalProps} />}
     </Page>
+    </div>
   )
 }
 

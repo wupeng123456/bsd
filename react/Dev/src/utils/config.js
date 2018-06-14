@@ -26,4 +26,5 @@ module.exports = {
     v1test: `${APIV1}/test`,
     v2test: `${APIV2}/test`,
   },
+  body: { width: '100%', height: document.documentElement.clientHeight - 80,  overflow: 'auto'},
 }
