@@ -15,20 +15,40 @@ import {
     Button,
     TouchableOpacity,
     ScrollView,
+    Dimensions,
+    Modal,
 } from 'react-native';
+import { Card, Icon,  List } from 'antd-mobile';
+
 import { NavigationActions } from 'react-navigation'// NavigationActions
 import DrawPage from './DrawPage'
+
+const Item = List.Item
+
 export default class HomePage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            visible: true,
+            selected: '',
         }
     }
     componentDidMount() {
         // console.log('1', this.props.navigation)
         // 获取页面参数
     }
+    onSelect = (opt) => {
+        console.log(opt.props.value)
+        this.setState({
+          visible: false,
+          selected: opt.props.value,
+        });
+      };
+      handleVisibleChange = (visible) => {
+        this.setState({
+          visible,
+        })
+      }
     one = () => {
         this.props.navigation.navigate('Zher', {
             title: 'react-native之flex-box布局',
@@ -39,9 +59,31 @@ export default class HomePage extends Component {
             title: x,
         })
     }
+    show = () => {
+        this.setState({
+            visible: !this.state.visible,
+        })
+    }
+    _onLayout = (e) =>{
+        console.log(e)        
+        }
     render() {
         return(
             <View style={styles.container}>
+           {(this.state.visible) ? <Modal
+                animationType={"none"}
+                transparent={true}
+                visible={this.state.visible}
+                onRequestClose={() => {console.log(this.newMethod())}}
+                >
+                <TouchableOpacity onPress={()=>console.log(1235214522)}>
+                <View style={[styles.container, {backgroundColor: 'rgba(0,0,0,0.3)'}]}>
+                    <View style={{width: 100, height: 100, backgroundColor: 'white', position: 'absolute' , top: 240 + 44, right: 0}}>
+
+                    </View>
+                </View>
+                </TouchableOpacity>
+                </Modal> : null}
                 <ScrollView>
                 <View style={styles.contend}>
                   <Text>react-native</Text>
@@ -60,13 +102,39 @@ export default class HomePage extends Component {
                     <Text style={[styles.Text, { backgroundColor: 'white'}]} onPress={this.Two.bind(this, 'ViewW', 'React NativeView组件')}>4.React NativeView组件</Text>
                   </View>
                 </View>
-                {/*  */}
+
+               <View style={{ display: 'flex', flexDirection: 'row'}}>
+                   <View style={{ flex: 1}}>
+                   <Text style={[styles.Text, { backgroundColor: 'white'}]}>下拉气泡</Text>
+                   </View>
+                   <View style={{ flex: 1, alignItems: 'flex-end'}} onLayout={({nativeEvent:e})=>this._onLayout(e)}>
+                       <TouchableOpacity
+                        underlayColor='transparent'
+                        onPress={() => this.show()}
+                       >
+                          <Icon type="ellipsis" />
+                       
+                       </TouchableOpacity>
+            
+                    </View>
+                   </View>
+                   <View><Text style={[styles.Text, { backgroundColor: 'white'}]}>这就是套路</Text></View>
                 </ScrollView>
             </View>
+            
+            
         )
+    }
+
+    newMethod() {
+        return 1232124512451245;
     }
 }
 const styles = StyleSheet.create({
+    magrt: {
+        padding: 0,
+        margin: 0,
+    },
     container: {
         flex: 1,
     },
