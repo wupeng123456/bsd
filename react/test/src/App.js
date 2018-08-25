@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Symbol from './Symbol'
 import logo from './logo.svg';
 import './App.css';
 
@@ -11,11 +12,15 @@ class App extends Component {
           <h1 className="App-title">你好世界</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          To get started, edit <code>src/App.js</code> and save to reload111.
         </p>
+        <section>
+          <Symbol />
+        </section>
       </div>
     );
   }
 }
 
 export default App;
+
