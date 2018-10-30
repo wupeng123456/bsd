@@ -18,6 +18,10 @@
     const timestamp = Date.parse(new Date())
     const str = moment(timestamp).format(dateFormat)
     ```
+#日期转时间戳
+    ```
+    const time = Date.parse(2018-6-9)
+    ```
 #判断函数是否存在
     ```
         isExitsFunction = (funcName) => {
@@ -29,4 +33,8 @@
         return false;
     }
         console.log(this.isExitsFunction(functionName))
+    ```
+#取随机数
+    ```
+    Math.round(Math.random() * 4)
     ```
