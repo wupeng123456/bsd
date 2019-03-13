@@ -1,0 +1,55 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "commonjs": true,
+    "amd": true,
+    "es6": true,
+    "mocha": true
+},
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+          "globalReturn": true,
+          "impliedStrict": true,
+          "jsx": true,
+          "modules": true
+      }
+  },
+  "plugins": [
+      "react"
+  ],
+  "extends": [
+    "umi",
+    "eslint:recommended"
+],
+  "rules": {
+    "no-empty": 2,
+    "no-empty-character-class": 2,
+    "no-unexpected-multiline": 2,
+    "consistent-return": 0,
+    "curly": [2, "all"],
+    "no-extra-bind": 2,
+    "no-unused-vars": [2, {
+      "vars": "all",
+      "args": "none"
+  }],
+  "no-use-before-define": 0,
+    "use-isnan": 2,
+    "no-console": 0,
+    "no-trailing-spaces": 2,
+    "arrow-body-style": 2,
+    "no-class-assign": 2,
+    "no-const-assign": 2,
+    "no-dupe-class-members": 2,
+    "no-restricted-imports": 0,
+    "no-this-before-super": 2,
+    "no-useless-computed-key": 0,
+    "no-var": 0,
+    "require-yield": 0,
+    "prefer-arrow-callback": 0,
+    "rest-spread-spacing": 0,
+    "yield-star-spacing": 2
+  }
+}
