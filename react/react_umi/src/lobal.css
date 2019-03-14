@@ -1,0 +1,12 @@
+
+@import '~antd/dist/antd.css';
+html, body, :global(#root) {
+    height: 100%;
+  }
+  .ant-table-pagination{
+    margin: 0;
+  }
+  .ant-tree-iconEle .ant-tree-icon__open {
+    width: 0;
+  }
+  

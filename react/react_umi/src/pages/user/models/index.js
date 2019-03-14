@@ -1,17 +1,17 @@
-import { POSTlist } from "../service"
+import { Login } from "../services"
 export default {
-    namespace: 'home',
-
+    namespace: 'login',
   state: {
-      nj:{},
   },
 
   effects: {
+      *login({ payload }, {call}) {
+        const response = yield call(Login)
+        console.log(response)
+      },
       *fetch(_, { put, call }) {
-          const response = yield call(POSTlist)
       },
   },
-
   reducers: {
       changeState(state, { payload }) {
           return {

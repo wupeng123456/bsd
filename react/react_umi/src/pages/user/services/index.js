@@ -1,6 +1,6 @@
 import request from "../../../utils/request"
-export async function POSTlist(params) {
-    return request(`/api/list`, {
+export async function Login(params) {
+    return request(`/api/login`, {
         method: 'POST',
         body: {
 			...params,

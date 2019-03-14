@@ -1,16 +1,12 @@
 import React from 'react';
 import { connect } from 'dva';
-import Home from "./Home"
-
 function IndexPage() {
     return (
         <div>
-            <Home/>
+            123456
         </div>
     );
 }
-
 IndexPage.propTypes = {
 };
-
 export default connect()(IndexPage);
