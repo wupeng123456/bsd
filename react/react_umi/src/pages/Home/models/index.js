@@ -1,3 +1,4 @@
+import { POSTlist } from "../service"
 export default {
     namespace: 'home',
 
@@ -6,6 +7,9 @@ export default {
   },
 
   effects: {
+      *fetch(_, { put, call }) {
+          const response = yield call(POSTlist)
+      },
   },
 
   reducers: {

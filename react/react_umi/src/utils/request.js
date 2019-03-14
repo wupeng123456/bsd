@@ -1,7 +1,6 @@
 import fetch from 'dva/fetch';
 import { notification } from 'antd';
 import { routerRedux } from 'dva/router'
-import { heard } from './utils'
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
@@ -28,15 +27,6 @@ function checkStatus(response) {
     message: '请求失败',
     description: codeMessage[response.status],
   })
-  if (response.status === 401) {
-      window.localStorage.clear()
-      routerRedux.push('/user/login')
-      window.location.reload()
-  }else if(response.status === 404){
-      window.localStorage.clear()
-      routerRedux.push('/user/login')
-      window.location.reload()
-  }
   const error = new Error(response.statusText)
   error.response = response
   throw error
@@ -56,17 +46,10 @@ export default function request(url, options) {
   }
   const newOptions = { ...defaultOptions, ...options }
   if (newOptions.method === 'POST' || newOptions.method === 'PUT') {
-    const { nickName, token, userId, userName, userNo, companyNo, companyName } = heard()
     newOptions.headers = {
       Accept: 'application/json',
       'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': `Basic ${token}`,
-      'LoginCompanyNo': `${encodeURI(companyNo)}`,
-      'LoginCompanyName': `${encodeURI(companyName)}`,
-      'NickName': `${encodeURI(nickName)}`,
-      'UserName': `${encodeURI(userName)}`,
-      'UserId': `${userId}`,
-      'UserNo': `${userNo}`,
+      // 'Authorization': `Basic ${token}`,
       ...newOptions.headers,
     }
     newOptions.body = JSON.stringify(newOptions.body)
@@ -80,18 +63,11 @@ export default function request(url, options) {
         if (typeof json.module === 'object' || typeof json.module === 'boolean' || typeof json.module === 'number') {
           if (json.success) {
             return json
-          } else {
-            if (json.resultCode === 'dfm_0016') {
-              return json
-            } else if(json.resultCode === 'dfm_0010'){
-              return json
-            } else {
-              notification.error({
-                message: '操作提示',
-                description: <div dangerouslySetInnerHTML={{ __html: json.errorMessage }}></div>,
-              })
-              return json
-            }
+          } else {notification.error({
+            message: '操作提示',
+            description: <div dangerouslySetInnerHTML={{ __html: json.errorMessage }}></div>,
+          })
+          return json
           }
         } else {
           return jsonPromise
