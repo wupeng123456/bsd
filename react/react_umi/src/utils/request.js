@@ -1,5 +1,6 @@
 import fetch from 'dva/fetch';
 import { notification } from 'antd';
+import { getLocalStorage } from "./utils"
 import { routerRedux } from 'dva/router'
 
 const codeMessage = {
@@ -45,11 +46,12 @@ export default function request(url, options) {
     mode: 'cors',
   }
   const newOptions = { ...defaultOptions, ...options }
+  const token = getLocalStorage("token")
   if (newOptions.method === 'POST' || newOptions.method === 'PUT') {
     newOptions.headers = {
       Accept: 'application/json',
       'Content-Type': 'application/json; charset=utf-8',
-      // 'Authorization': `Basic ${token}`,
+      'Authorization': `Basic ${token}`,
       ...newOptions.headers,
     }
     newOptions.body = JSON.stringify(newOptions.body)

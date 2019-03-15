@@ -9,4 +9,6 @@ html, body, :global(#root) {
   .ant-tree-iconEle .ant-tree-icon__open {
     width: 0;
   }
-  
+  .ant-menu-inline-collapsed {
+    width: 79px;
+}
