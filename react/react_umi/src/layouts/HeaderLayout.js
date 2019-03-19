@@ -3,6 +3,7 @@ import DocumentTitle from 'react-document-title'
 import { Layout } from 'antd';
 import Siderconent from "./Sider"
 import styles from "./index.less"
+import Headerconent from "./Headerconent"
 const { Header, Footer, Sider, Content } = Layout;
 export default class HeaderLayout extends Component {
   constructor(props) {
@@ -12,8 +13,8 @@ export default class HeaderLayout extends Component {
     };
   }
   Title = () => {
-      const { pathname } = this.props.location
-      return `Ant Design Pro${pathname}`
+      // const { pathname } = this.props.location
+      return `Ant Design Pro`
   }
   toggle = () => {
     const { collapsed } = this.state
@@ -24,9 +25,13 @@ export default class HeaderLayout extends Component {
   render() {
     const { children } = this.props
     const { collapsed } = this.state
+    const { pathname } = this.props.location
     const Siderdata = {
         collapsed,
         toggle: this.toggle,
+    }
+    const Hdata = {
+      pathname
     }
     return (
         <DocumentTitle title={this.Title()}>
@@ -35,7 +40,9 @@ export default class HeaderLayout extends Component {
                     <Siderconent {...Siderdata}/>
                 </Sider>
                 <Layout>
-                    <Header className={styles.Header}>Header</Header>
+                    <Header className={styles.Header}>
+                      <Headerconent {...Hdata}/>
+                    </Header>
                     <Content className={styles.main}>{children}</Content>
                     <Footer className={styles.Header}>Footer</Footer>
                 </Layout>

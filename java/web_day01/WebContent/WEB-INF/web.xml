@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>web_day01</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- 配置web.xml的作用:可以通过地址栏的url路径来访问HelloServlet程序 -->
+  <!-- 定义名称和servlet的映射关系 -->
+  <servlet>
+		<!-- 给HelloServlet取一个名称 -->
+		<servlet-name>hello</servlet-name>
+		<!-- 配置HelloServlet的绝对路径，标识hello就是指的是这个类 -->
+		<servlet-class>cn.itcast.servlet.HelloServlet</servlet-class>
+	</servlet>
+	<!-- 配置地址映射关系：可以使得地址栏中的url请求访问到HelloServlet程序 -->
+	<servlet-mapping>
+		<!-- 需要和上面的名称一致 -->
+		<servlet-name>hello</servlet-name>
+		<!-- 配置请求名称：通过该名称可以找到Servlet程序 -->
+		<!-- 
+			/表示：http://localhost:8080/web_day01
+			通过httphttp://localhost:8080/web_day01/hello可以访问到HelloServlet程序
+		 -->
+		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+	  <servlet>
+	  	<servlet-name>demo</servlet-name>
+	  	<servlet-class>cn.itcast.servlet.DemoServlet</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	  	<servlet-name>demo</servlet-name>
+	  	<url-pattern>/demo</url-pattern>
+	  </servlet-mapping>
+  
+</web-app>
