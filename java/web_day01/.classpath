@@ -8,6 +8,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/SSM/web_day01/WebContent/WEB-INF/lib"/>
+	<classpathentry kind="lib" path="E:/heisha/bsd/java/web_day01/WebContent/WEB-INF/lib"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
