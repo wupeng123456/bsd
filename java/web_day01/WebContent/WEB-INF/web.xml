@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>web_day01</display-name>
+  <!-- 设置全局的配置信息，实现多个servlet共享数据 -->
+	<context-param>
+		<!-- 设置配置信息的key -->
+		<param-name>name</param-name>
+		<!-- 设置配置信息的value -->
+		<param-value>传智播客</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>address</param-name>
+		<param-value>航都路18号</param-value>
+	</context-param>
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -36,7 +49,10 @@
     	<!-- 设置初始化信息的value -->
     	<param-value>张三</param-value>
     </init-param>
-    
+    <init-param>
+    	<param-name>age</param-name>
+    	<param-value>23</param-value>
+    </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>demo2</servlet-name>
