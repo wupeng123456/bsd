@@ -58,4 +58,28 @@
     <servlet-name>demo2</servlet-name>
     <url-pattern>/demo2</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>demo3</servlet-name>
+  	<servlet-class>cn.itcast.servlet.Demo3Servlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>demo3</servlet-name>
+    <url-pattern>/demo3</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>demo4</servlet-name>
+  	<servlet-class>cn.itcast.servlet.Demo4Servlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>demo4</servlet-name>
+    <url-pattern>/demo4</url-pattern>
+  </servlet-mapping>
+    <servlet>
+  	<servlet-name>demo5</servlet-name>
+  	<servlet-class>cn.itcast.servlet.Demo5Servlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>demo5</servlet-name>
+    <url-pattern>/demo5</url-pattern>
+  </servlet-mapping>
 </web-app>
