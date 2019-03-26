@@ -82,4 +82,44 @@
     <servlet-name>demo5</servlet-name>
     <url-pattern>/demo5</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>request</servlet-name>
+  	<servlet-class>cn.itcast.servlet.RequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>request</servlet-name>
+    <url-pattern>/request</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>request2</servlet-name>
+  	<servlet-class>cn.itcast.servlet.Request2Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>request2</servlet-name>
+    <url-pattern>/request2</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>request3</servlet-name>
+  	<servlet-class>cn.itcast.servlet.Request3Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>request3</servlet-name>
+    <url-pattern>/request3</url-pattern>
+  </servlet-mapping>
+   <servlet>
+  	<servlet-name>request4</servlet-name>
+  	<servlet-class>cn.itcast.servlet.Request4Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>request4</servlet-name>
+    <url-pattern>/request4</url-pattern>
+  </servlet-mapping>
+    <servlet>
+  	<servlet-name>user</servlet-name>
+  	<servlet-class>cn.itcast.servlet.Request5Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>user</servlet-name>
+    <url-pattern>/user</url-pattern>
+  </servlet-mapping>
 </web-app>
