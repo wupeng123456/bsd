@@ -114,6 +114,22 @@
     <servlet-name>request4</servlet-name>
     <url-pattern>/request4</url-pattern>
   </servlet-mapping>
+     <servlet>
+  	<servlet-name>request6</servlet-name>
+  	<servlet-class>cn.itcast.servlet.Request6Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>request6</servlet-name>
+    <url-pattern>/request6</url-pattern>
+  </servlet-mapping>
+     <servlet>
+  	<servlet-name>request7</servlet-name>
+  	<servlet-class>cn.itcast.servlet.Request7Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>request7</servlet-name>
+    <url-pattern>/request7</url-pattern>
+  </servlet-mapping>
     <servlet>
   	<servlet-name>user</servlet-name>
   	<servlet-class>cn.itcast.servlet.Request5Servlet</servlet-class>
