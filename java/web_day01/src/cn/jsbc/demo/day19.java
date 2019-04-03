@@ -1,6 +1,5 @@
 package cn.jsbc.demo;
 import java.lang.reflect.Field;
-import java.security.acl.Permission;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +8,7 @@ import org.junit.Test;
 
 import cn.itcast.dto.Car;
 import cn.itcast.dto.Person;
+//import utils.BeanUtils;
 public class day19 {
 	// 回顾获取Class对象的三种方式
 //	@Test
