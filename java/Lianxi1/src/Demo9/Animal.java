@@ -1,5 +1,5 @@
 package Demo9;
 
-public class Animal {
-
+abstract class Animal {
+	abstract void eat();
 }
